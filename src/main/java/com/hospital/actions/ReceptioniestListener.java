@@ -43,7 +43,11 @@ public class ReceptioniestListener {
 			String gender = request.getParameter("gender");
 			
 
-			int bloodGroupID = Integer.parseInt(request.getParameter("bloodGroupID"));
+			try {
+				int bloodGroupID = Integer.parseInt(request.getParameter("bloodGroupID"));
+			}catch(Exception e) {
+				System.out.println("bloodGroupId is not numeric: "+request.getParameter("bloodGroupID"));
+			}
 			BloodGroup bloodGroup = (BloodGroup) receptioniestDAO.getObject(bloodGroupID, BloodGroup.class);
 
 			String nfullname = request.getParameter("nfullname");
