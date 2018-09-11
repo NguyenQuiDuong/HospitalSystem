@@ -422,14 +422,23 @@ function errorPassword() {
             <div class="signupmodal-container">
                 <h1>Patient Registration</h1><br>
                 <form id="signupform" method="POST" action="Process?action=addPatient">
-                    <input type="text" name="fullname" placeholder="Full Name" required>
-                    <label>Select Category</label>
-                    <select name="catid"></select>
-                    <input type="text" name="dob" placeholder="Date of Birth" class="dob" />
+	                <input type="text" name="firstname" placeholder="First Name" required>
+	                <input type="text" name="fathername" placeholder="Father Name" required>
+	                <input type="text" name="familyname" placeholder="Family Name" required>
+	                <input type="text" name="address" placeholder="Address" required>
+	                <input type="text" name="email" placeholder="Email" required>
+                	<input type="text" name="phone" placeholder="Phone" required>
+                	<input type="text" name="dob" placeholder="Date of Birth" class="dob" />
                     <div class="radio">
                         <label><input type="radio" name="gender" value="male" /> Male</label>
                         <label><input type="radio" name="gender" value="female"/> Female</label>
                     </div>
+                	<label>Next Of Skin</label>
+                	<input type="text" name="nfullname" placeholder="Full Name" required>
+                    <input type="text" name="naddress" placeholder="Address" required>
+                    <input type="text" name="nrelationship" placeholder="Relationship" required>
+                    <input type="text" name="nphone" placeholder="Phone" required>
+                    
                     <input type="submit" name="signup" class="signup signupmodal-submit" value="Register">
                 </form>
             </div>
