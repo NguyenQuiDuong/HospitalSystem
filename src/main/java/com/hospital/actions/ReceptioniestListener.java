@@ -42,13 +42,14 @@ public class ReceptioniestListener {
 			String phone = request.getParameter("phone");
 			String gender = request.getParameter("gender");
 			
-
+			Integer bloodGroupID = null;
+			BloodGroup bloodGroup = null;
 			try {
-				int bloodGroupID = Integer.parseInt(request.getParameter("bloodGroupID"));
+				bloodGroupID = Integer.parseInt(request.getParameter("bloodGroupID"));
+				bloodGroup = (BloodGroup) receptioniestDAO.getObject(bloodGroupID, BloodGroup.class);
 			}catch(Exception e) {
 				System.out.println("bloodGroupId is not numeric: "+request.getParameter("bloodGroupID"));
 			}
-			BloodGroup bloodGroup = (BloodGroup) receptioniestDAO.getObject(bloodGroupID, BloodGroup.class);
 
 			String nfullname = request.getParameter("nfullname");
 			String naddress = request.getParameter("naddress");
