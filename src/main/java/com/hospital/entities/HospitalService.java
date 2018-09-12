@@ -339,17 +339,17 @@ public class HospitalService extends HibernateDriver
     public void composeMessage(Message message) {
         try {
             openSession();
-//			String sql = "insert into Messages (messageBody, messageDate, messageStatus, subject, from_employee_id, patient_id, fto_employee_id) values(:mbody,:mdate,:mStatus,:mSubject,:mfromID, :mpatientID,:mToID)";
-//			SQLQuery query = getSession().createSQLQuery(sql);
-//			query.setParameter("mbody", message.getMessageBody());
-//			query.setParameter("mdate", message.getMessageDate());
-//			query.setParameter("mStatus", message.isMessageStatus());
-//			query.setParameter("mSubject", message.getSubject());
-//			query.setParameter("mfromID", message.getFromEmployee());
-//			query.setParameter("mToID", message.getToEmployee());
-//			query.setParameter("mpatientID", message.getPatient());
-            getSession().save(message);
-//			query.executeUpdate();
+			String sql = "insert into Messages (messageBody, messageDate, messageStatus, subject, from_employee_id, patient_id, fto_employee_id) values(:mbody,:mdate,:mStatus,:mSubject,:mfromID, :mpatientID,:mToID)";
+			SQLQuery query = getSession().createSQLQuery(sql);
+			query.setParameter("mbody", message.getMessageBody());
+			query.setParameter("mdate", message.getMessageDate());
+			query.setParameter("mStatus", message.isMessageStatus());
+			query.setParameter("mSubject", message.getSubject());
+			query.setParameter("mfromID", message.getFromEmployee());
+			query.setParameter("mToID", message.getToEmployee());
+			query.setParameter("mpatientID", message.getPatient());
+//            getSession().save(message);
+			query.executeUpdate();
 
         } catch (Exception ex) {
             roleBack();
