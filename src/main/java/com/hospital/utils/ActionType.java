@@ -5,7 +5,7 @@ public enum ActionType {
 	AddEmployee,deleteEmployee,UpdateEmployee,
 	ChangePassword,ComposeEmail,ViewMessage,
 	AddRoom,DeleteRoom,UpdateRoom,
-	addPatient,DeletePatient,UpdatePatient,
+	AddPatient,DeletePatient,UpdatePatient,
 	BookBed,DeleteBookBed,UpdateBookBed,
 	AddDiesease,DeleteDiesease,UpdateDiesease,
 	AddDrug,DeleteDrug,UpdateDrug,SellDrug,ReverseSellDrug,UpdateSellDrug,

@@ -77,7 +77,7 @@ public class Process extends HttpServlet {
 
 		}
 
-		else if (action.equals(ActionType.addPatient.name())) {
+		else if (action.equals(ActionType.AddPatient.name())) {
 			receptioniestListener.addpatient(request, response);
 
 		}
