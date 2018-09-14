@@ -421,7 +421,7 @@ function errorPassword() {
         <div class="modal-dialog">
             <div class="signupmodal-container">
                 <h1>Patient Registration</h1><br>
-                <form id="signupform" method="POST" action="Process?action=addPatient">
+                <form id="signupform" method="POST" action="Process?action=AddPatient">
 	                <input type="text" name="firstname" placeholder="First Name" required>
 	                <input type="text" name="fathername" placeholder="Father Name" required>
 	                <input type="text" name="familyname" placeholder="Family Name" required>
