@@ -49,11 +49,19 @@ if(employee!=null)
 function errorPassword() {
 	demo.showNotification('top','right','User name or passsword error','danger');
 }
+
+function errorAddPatient() {
+	demo.showNotification('top','right','Error when add patient, please try again later!','danger');
+}
+
+function successAddPatient() {
+	demo.showNotification('top','right','Add patient successful!','success');
+}
 </script>
 
     </head>
  
-<body id="page-top"  <c:if test="${not empty param['error']}">  onload="errorPassword();" </c:if> >
+<body id="page-top"  <c:if test="${not empty param['error']}">  onload="errorPassword();" </c:if> <c:if test="${not empty param['errorAddPatient']}">  onload="errorAddPatient();" </c:if> <c:if test="${not empty param['successAddPatient']}">  onload="successAddPatient();" </c:if>>
     
         <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -438,7 +446,7 @@ function errorPassword() {
                     <input type="text" name="naddress" placeholder="Address" required>
                     <input type="text" name="nrelationship" placeholder="Relationship" required>
                     <input type="text" name="nphone" placeholder="Phone" required>
-                    
+                    <input type="hidden" name ="source" value="fromIndex">
                     <input type="submit" name="signup" class="signup signupmodal-submit" value="Register">
                 </form>
             </div>

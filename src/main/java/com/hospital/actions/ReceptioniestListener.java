@@ -78,11 +78,19 @@ public class ReceptioniestListener {
 
 			statusCode = receptioniestDAO.saveObject(patient);
 			
-			response.sendRedirect("patientmgmt.jsp?add=true");
+			if(request.getParameter("source") != null && request.getParameter("source").equals("fromIndex")){
+				response.sendRedirect("index.jsp?successAddPatient=true");
+			}else {
+				response.sendRedirect("patientmgmt.jsp?add=true");
+			}
 
 		} catch (Exception ex) {
 			try {
-				response.sendRedirect("patientmgmt.jsp?error=true");
+				if(request.getParameter("source") != null && request.getParameter("source").equals("fromIndex")){
+					response.sendRedirect("index.jsp?errorAddPatient=true");
+				}else {
+					response.sendRedirect("patientmgmt.jsp?error=true");
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
