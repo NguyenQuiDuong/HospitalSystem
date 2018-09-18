@@ -158,6 +158,7 @@
 																		<%=patient.getName()%>
 																		<%=patient.getFatherName()%>
 																		<%=patient.getFamilyName()%>
+																		<%if(patient.getType() == 2) out.print("*"); %>
 																	</option>
 																	<%
 																		}
@@ -224,6 +225,7 @@
 																		<%=patient.getName()%>
 																		<%=patient.getFatherName()%>
 																		<%=patient.getFamilyName()%>
+																		<%if(patient.getType() == 2) out.print("*"); %>
 																	</option>
 																	<%
 																		}
