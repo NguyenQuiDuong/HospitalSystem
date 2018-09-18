@@ -18,6 +18,9 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "Patients")
 public class Patient implements java.io.Serializable {
+	
+	public static final int IN_PATIENT = 1;
+	public static final int OUT_PATIENT = 2;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,6 +40,7 @@ public class Patient implements java.io.Serializable {
 	private Date joiningDate;
 	private String name;
 	private long phone;
+	private int type;
 	
 	
 	@OneToOne(fetch = FetchType.EAGER,targetEntity = BloodGroup.class,cascade = CascadeType.ALL)
@@ -152,6 +156,14 @@ public class Patient implements java.io.Serializable {
 
 	public void setPhone(long phone) {
 		this.phone = phone;
+	}
+	
+	public int getType() {
+		return this.type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	

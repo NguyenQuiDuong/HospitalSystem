@@ -55,6 +55,7 @@ public class ReceptioniestListener {
 			String naddress = request.getParameter("naddress");
 			String nrelationship = request.getParameter("nrelationship");
 			String nphone = request.getParameter("nphone");
+			String ntype = request.getParameter("type");
 
 			NextOfKin nextOfKin = new NextOfKin();
 			nextOfKin.setAddress(naddress);
@@ -75,6 +76,7 @@ public class ReceptioniestListener {
 			patient.setJoiningDate(new Date());
 			patient.setNextOfKin(nextOfKin);
 			patient.setBloodGroup(bloodGroup);
+			patient.setType(Integer.parseInt(ntype));
 
 			statusCode = receptioniestDAO.saveObject(patient);
 			
@@ -138,6 +140,7 @@ public class ReceptioniestListener {
 			String dob = request.getParameter("dob");
 			String phone = request.getParameter("phone");
 			String gender = request.getParameter("gender");
+			String type = request.getParameter("type");
 			
 
 			int bloodGroupID = Integer.parseInt(request.getParameter("bloodGroupID"));
@@ -161,6 +164,7 @@ public class ReceptioniestListener {
 			patient.setPhone(Long.parseLong(phone));
 			patient.setGender(gender);
 			patient.setJoiningDate(new Date());
+			patient.setType(Integer.parseInt(type));
 			
 			
 			NextOfKin nextOfKin = patient.getNextOfKin();
@@ -190,24 +194,28 @@ public class ReceptioniestListener {
 		try {
 			int roomID = Integer.parseInt(request.getParameter("roomTypeID"));
 			int patientID = Integer.parseInt(request.getParameter("patientID"));
-			String departement = request.getParameter("departement");
-
-			BookBed bookBed = new BookBed();
-			bookBed.setDatePlaced(new Date());
-			bookBed.setDepartement(departement);
-			bookBed.setStatus(false);
 			Patient patient = (Patient) receptioniestDAO.getObject(patientID, Patient.class);
-			bookBed.setPatient(patient);
-
-			Room room = (Room) receptioniestDAO.getObject(roomID, Room.class);
-			room.setNumberOfAvailableBeds(room.getNumberOfAvailableBeds() - 1);
-			bookBed.setRoom(room);
-
-			receptioniestDAO.saveObject(bookBed);
-			
-			
-
-			response.sendRedirect("bookBed.jsp?add=true");
+			if(patient.getType() == Patient.OUT_PATIENT) {
+				response.sendRedirect("bookBed.jsp?error=OUT_PATIENT");
+			}else {
+				String departement = request.getParameter("departement");
+	
+				BookBed bookBed = new BookBed();
+				bookBed.setDatePlaced(new Date());
+				bookBed.setDepartement(departement);
+				bookBed.setStatus(false);
+				bookBed.setPatient(patient);
+	
+				Room room = (Room) receptioniestDAO.getObject(roomID, Room.class);
+				room.setNumberOfAvailableBeds(room.getNumberOfAvailableBeds() - 1);
+				bookBed.setRoom(room);
+	
+				receptioniestDAO.saveObject(bookBed);
+				
+				
+	
+				response.sendRedirect("bookBed.jsp?add=true");
+			}
 
 		} catch (Exception ex) {
 			try {

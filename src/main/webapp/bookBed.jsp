@@ -56,8 +56,15 @@
 				'success');
 	}
 
-	function error() {
-		demo.showNotification('top', 'right', 'Error Operations', 'danger');
+	function error(errorType) {
+		
+		if(errorType == 'true'){
+			demo.showNotification('top', 'right', 'Error Operations', 'danger');
+		}
+		
+		if(errorType == 'OUT_PATIENT'){
+			demo.showNotification('top', 'right', 'Outpatient can not book bed', 'danger');
+		}
 	}
 </script>
 
@@ -66,7 +73,7 @@
 	<c:if test="${not empty param['add']}">  onload="addBookBed();" </c:if>
 	<c:if test="${not empty param['delete']}">  onload="deleteBookBed();" </c:if>
 	<c:if test="${not empty param['update']}">  onload="updateBookBed();" </c:if>
-	<c:if test="${not empty param['error']}">  onload="error();" </c:if>>
+	<c:if test="${not empty param['error']}">  onload="error( '${param['error'] }' );" </c:if>>
 
 
 
