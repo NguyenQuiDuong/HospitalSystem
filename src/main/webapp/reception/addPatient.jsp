@@ -267,7 +267,7 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${patients}" var="patient">
-								<tr>
+								<tr <c:if test="${patient.type == 2 }">style="color: red;"</c:if>>
 									<td><c:out value="${patient.name}" /> <c:out
 											value="${patient.fatherName}" /> <c:out
 											value="${patient.familyName}" /></td>
