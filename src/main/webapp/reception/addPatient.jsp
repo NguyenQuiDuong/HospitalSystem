@@ -183,7 +183,7 @@
 									      	<div id="collapseOne" aria-expanded="false" class="collapse">
 												<label for="radio">Select level</label><br>
 												<select class="form-control" name="insuranceHealth" required>
-													<option value="">Select Blood Type</option>
+													<option value="">Select Insurance</option>
 													<option value="10" > Level 1</option> 
 													<option value="20" > Level 2</option>
 													<option value="30" > Level 3</option>
