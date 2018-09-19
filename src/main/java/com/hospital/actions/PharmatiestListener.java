@@ -331,6 +331,7 @@ public class PharmatiestListener {
 
 		for (int i = 0; i < allSelledDrugForEmployee.size(); i++) {
 			PatientDrugInvoice p = new PatientDrugInvoice();
+			double totalPrice = 0;
 
 			p.setAddress(allSelledDrugForEmployee.get(i).getPatient().getAddress());
 			p.setBloodGroupName(allSelledDrugForEmployee.get(i).getPatient().getBloodGroup().getBloodGroupName());
@@ -352,7 +353,8 @@ public class PharmatiestListener {
 			p.setStartDate(allSelledDrugForEmployee.get(i).getStartDate());
 			p.setQuantity(allSelledDrugForEmployee.get(i).getQuantity());
 			p.setUnitPerDay(allSelledDrugForEmployee.get(i).getUnitPerDay());
-			sum += allSelledDrugForEmployee.get(i).getDrug().getCost() * allSelledDrugForEmployee.get(i).getQuantity();
+			totalPrice = allSelledDrugForEmployee.get(i).getDrug().getCost() * allSelledDrugForEmployee.get(i).getQuantity();
+			sum += totalPrice-(totalPrice*allSelledDrugForEmployee.get(i).getPatient().getInsuranceHealth()/100);
 
 			p.setTotalCost(sum);
 

@@ -41,6 +41,7 @@ public class Patient implements java.io.Serializable {
 	private String name;
 	private long phone;
 	private int type;
+	private int insuranceHealth;
 	
 	
 	@OneToOne(fetch = FetchType.EAGER,targetEntity = BloodGroup.class,cascade = CascadeType.ALL)
@@ -165,6 +166,16 @@ public class Patient implements java.io.Serializable {
 	public void setType(int type) {
 		this.type = type;
 	}
+
+	public int getInsuranceHealth() {
+		return insuranceHealth;
+	}
+
+	public void setInsuranceHealth(int insuranceHealth) {
+		this.insuranceHealth = insuranceHealth;
+	}
+	
+	
 
 	
 

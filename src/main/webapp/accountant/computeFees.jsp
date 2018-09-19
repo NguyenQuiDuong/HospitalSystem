@@ -98,6 +98,7 @@
                                                         Date currentDate = new Date();
                                                         long totalNumberOfDayes = getDifferenceDays(bookBed.getDatePlaced(), currentDate);
                                                         double totalCost = totalNumberOfDayes * bookBed.getRoom().getRoomType().getRoomCost();
+                                                        double lastCost = totalCost-(totalCost*bookBed.getPatient().getInsuranceHealth()/100);
                                   //                      out.print(totalNumberOfDayes + ":\t:" + bookBed.getRoom().getRoomType().getRoomCost());
                                                     %>
 
@@ -113,7 +114,7 @@
                                                         <td><%=bookBed.getRoom().getRoomType().getTypeOfroom()%></td>
                                                         <td><%=bookBed.getRoom().getRoomType().getRoomCost()%></td>
                                                         <td><%=totalNumberOfDayes%></td>
-                                                        <td><%=totalCost%></td>
+                                                        <td><%=lastCost%></td>
 
                                                         <td>
                                                             <%

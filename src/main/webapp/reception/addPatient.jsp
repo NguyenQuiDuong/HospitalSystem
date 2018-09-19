@@ -157,8 +157,7 @@
 										</div>
 									</div>
 								</div>
-
-
+								
 
 								<div class="col-sm-3">
 									<div class="form-group">
@@ -172,8 +171,25 @@
 										</select>
 									</div>
 								</div>
-
-
+								
+								<div class="col-sm-3 col-sm-offset-1">
+									<div class="form-group">
+										<div class="togglebutton">
+											<label data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+										        <input type="checkbox"/> Insurance Health
+									      	</label>
+								      	</div>
+								      	<div id="collapseOne" aria-expanded="false" class="collapse">
+											<label for="radio">Select level</label><br>
+											<div class="radio">
+												<label><input type="radio" name="type" value="10" /> Level 1</label> 
+												<label><input type="radio" name="type" value="20" /> Level 2</label>
+												<label><input type="radio" name="type" value="30" /> Level 3</label>
+												<label><input type="radio" name="type" value="40" /> Level 4</label>
+											</div>
+										</div>
+									</div>
+								</div>
 
 
 							
