@@ -176,17 +176,18 @@
 									<div class="form-group">
 										<div class="togglebutton">
 											<label data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-										        <input type="checkbox"/> Insurance Health
+										        <input type="checkbox" name="checkInsuranceHealth" value=true/> Insurance Health
 									      	</label>
 								      	</div>
 								      	<div id="collapseOne" aria-expanded="false" class="collapse">
 											<label for="radio">Select level</label><br>
-											<div class="radio">
-												<label><input type="radio" name="type" value="10" /> Level 1</label> 
-												<label><input type="radio" name="type" value="20" /> Level 2</label>
-												<label><input type="radio" name="type" value="30" /> Level 3</label>
-												<label><input type="radio" name="type" value="40" /> Level 4</label>
-											</div>
+											<select class="form-control" name="insuranceHealth" required>
+												<option value="">Select Blood Type</option>
+												<option value="10" > Level 1</option> 
+												<option value="20" > Level 2</option>
+												<option value="30" > Level 3</option>
+												<option value="40" > Level 4</option>
+											</select>
 										</div>
 									</div>
 								</div>

@@ -161,6 +161,17 @@
 										</div>
 									</div>
 								</div>
+								
+								<div class="col-sm-3 col-sm-offset-1">
+									<div class="form-group">
+										<label for="radio">Select Type</label><br>
+										<div class="radio">
+											<label><input type="radio" name="type" required
+												value="1" required /> In patient</label> <label><input
+												type="radio" name="type" value="2" /> Out patient</label>
+										</div>
+									</div>
+								</div>
 
 
 
@@ -183,9 +194,26 @@
 										</select>
 									</div>
 								</div>
-
-
-
+								
+								<div class="col-sm-3 col-sm-offset-1">
+									<div class="form-group">
+										<div class="togglebutton">
+											<label data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+										        <input type="checkbox" name="checkInsuranceHealth" value=true/> Insurance Health
+									      	</label>
+								      	</div>
+								      	<div id="collapseOne" aria-expanded="false" class="collapse">
+											<label for="radio">Select level</label><br>
+											<select class="form-control" name="insuranceHealth" required>
+												<option value="">Select Blood Type</option>
+												<option value="10" > Level 1</option> 
+												<option value="20" > Level 2</option>
+												<option value="30" > Level 3</option>
+												<option value="40" > Level 4</option>
+											</select>
+										</div>
+									</div>
+								</div>
 
 
 							</div>

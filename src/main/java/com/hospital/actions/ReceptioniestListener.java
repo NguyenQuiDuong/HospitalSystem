@@ -56,6 +56,8 @@ public class ReceptioniestListener {
 			String nrelationship = request.getParameter("nrelationship");
 			String nphone = request.getParameter("nphone");
 			String ntype = request.getParameter("type");
+			String nInsuranceHealth = request.getParameter("insuranceHealth");
+			String isInsuranceHealth = request.getParameter("checkInsuranceHealth");
 
 			NextOfKin nextOfKin = new NextOfKin();
 			nextOfKin.setAddress(naddress);
@@ -77,6 +79,9 @@ public class ReceptioniestListener {
 			patient.setNextOfKin(nextOfKin);
 			patient.setBloodGroup(bloodGroup);
 			patient.setType(Integer.parseInt(ntype));
+			if(!isInsuranceHealth.isEmpty() && !nInsuranceHealth.isEmpty()) {
+				patient.setInsuranceHealth(Integer.parseInt(nInsuranceHealth));
+			}
 
 			statusCode = receptioniestDAO.saveObject(patient);
 			
@@ -150,6 +155,8 @@ public class ReceptioniestListener {
 			String naddress = request.getParameter("naddress");
 			String nrelationship = request.getParameter("nrelationship");
 			String nphone = request.getParameter("nphone");
+			String nInsuranceHealth = request.getParameter("insuranceHealth");
+			String isInsuranceHealth = request.getParameter("checkInsuranceHealth");
 
 		
 
@@ -165,6 +172,9 @@ public class ReceptioniestListener {
 			patient.setGender(gender);
 			patient.setJoiningDate(new Date());
 			patient.setType(Integer.parseInt(type));
+			if(!isInsuranceHealth.isEmpty() && !nInsuranceHealth.isEmpty()) {
+				patient.setInsuranceHealth(Integer.parseInt(nInsuranceHealth));
+			}
 			
 			
 			NextOfKin nextOfKin = patient.getNextOfKin();
