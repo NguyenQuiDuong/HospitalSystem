@@ -37,7 +37,7 @@ public class HospitalService extends HibernateDriver
         List<Employee> employees = null;
         try {
             openSession();
-            employees = getSession().createQuery("From Employee where  type = :type")
+            employees = getSession("getEmployees").createQuery("From Employee where  type = :type")
                     .setParameter("type", type).list();
 
         } catch (Exception ex) {
@@ -60,7 +60,7 @@ public class HospitalService extends HibernateDriver
         Employee employee = null;
         try {
             openSession();
-            employee = (Employee) getSession()
+            employee = (Employee) getSession("getEmployee")
                     .createQuery(
                             "From Employee where (email= :loginEmailOrName or username= :loginEmailOrName) and password = :password")
                     .setParameter("loginEmailOrName", loginEmailOrName).setParameter("password", password)
@@ -86,7 +86,7 @@ public class HospitalService extends HibernateDriver
         Object object = null;
         try {
             openSession();
-            object = (Object) getSession().get(clazz, employeeID);
+            object = (Object) getSession("getObject").get(clazz, employeeID);
 
         } catch (Exception ex) {
             roleBack();
@@ -107,7 +107,7 @@ public class HospitalService extends HibernateDriver
         int objectID = 0;
         try {
             openSession();
-            objectID = (int) getSession().save(object);
+            objectID = (int) getSession("saveObject").save(object);
 
             System.out.println("Object "+name+" Saved Successfuly...");
 
@@ -130,7 +130,7 @@ public class HospitalService extends HibernateDriver
     public <T extends Object> void updateObject(T object) {
         try {
             openSession();
-            getSession().update(object);
+            getSession("updateObject").update(object);
         } catch (Exception ex) {
             roleBack();
             ex.printStackTrace();
@@ -148,7 +148,7 @@ public class HospitalService extends HibernateDriver
     public <T extends Object> void deleteObject(T object) {
         try {
             openSession();
-            getSession().delete(object);
+            getSession("deleteObject").delete(object);
 
         } catch (Exception ex) {
             roleBack();
@@ -166,7 +166,7 @@ public class HospitalService extends HibernateDriver
         List<T> objects = null;
         try {
             openSession();
-            objects = getSession().createQuery("From " + clazz.getName()).list();
+            objects = getSession("getListObjects").createQuery("From " + clazz.getName()).list();
 
         } catch (Exception ex) {
             roleBack();
@@ -183,7 +183,7 @@ public class HospitalService extends HibernateDriver
         try {
             openSession();
 
-            employees = getSession().createQuery("From Employee where employeeId<> :empID")
+            employees = getSession("getListEmployeeWithout").createQuery("From Employee where employeeId<> :empID")
                     .setParameter("empID", employeeID).list();
 
         } catch (Exception ex) {
@@ -200,7 +200,7 @@ public class HospitalService extends HibernateDriver
         try {
             openSession();
             String sql = "delete from Messages where from_employee_id= :empID or fto_employee_id= :empID";
-            SQLQuery query = getSession().createSQLQuery(sql);
+            SQLQuery query = getSession("deleteAllMessageForEmployee").createSQLQuery(sql);
             query.setParameter("empID", employeeID);
             query.executeUpdate();
 
@@ -217,7 +217,7 @@ public class HospitalService extends HibernateDriver
         try {
             openSession();
             String sql = "select type,count(employeeId) \"number\" From Employee GROUP By type";
-            SQLQuery query = getSession().createSQLQuery(sql).addScalar("type").addScalar("number");
+            SQLQuery query = getSession("getEmployeeStatistic").createSQLQuery(sql).addScalar("type").addScalar("number");
             query.setResultTransformer(Transformers.aliasToBean(EmployeeStatatistic.class));
             employeeStatatistics = query.list();
 
@@ -236,7 +236,7 @@ public class HospitalService extends HibernateDriver
         List<Message> messages = null;
         try {
             openSession();
-            messages = getSession()
+            messages = getSession("getAllMessagesSentByEmployee")
                     .createSQLQuery("Select * From Messages where from_employee_id= :toEmp ORDER BY messageDate Desc")
                     .addEntity(Message.class).setParameter("toEmp", employeeID).list();
 
@@ -254,7 +254,7 @@ public class HospitalService extends HibernateDriver
         List<Message> messages = null;
         try {
             openSession();
-            messages = getSession()
+            messages = getSession("getAllMessagesForEmployee")
                     .createSQLQuery("Select * From Messages where fto_employee_id= :toEmp ORDER BY messageDate Desc")
                     .addEntity(Message.class).setParameter("toEmp", employeeID).list();
 
@@ -272,7 +272,7 @@ public class HospitalService extends HibernateDriver
         List<Message> messages = null;
         try {
             openSession();
-            messages = getSession()
+            messages = getSession("getAllUnreadMessagesForEmployee")
                     .createSQLQuery("Select * From Messages where fto_employee_id= :toEmp and messageStatus=0 ORDER BY messageDate Desc")
                     .addEntity(Message.class).setParameter("toEmp", employeeID).list();
 
@@ -290,7 +290,7 @@ public class HospitalService extends HibernateDriver
         try {
             openSession();
             String sql = "delete from Messages where patient_id = :patID";
-            SQLQuery query = getSession().createSQLQuery(sql);
+            SQLQuery query = getSession("deleteAllPatientMessages").createSQLQuery(sql);
             query.setParameter("patID", patientID);
             query.executeUpdate();
 
@@ -307,7 +307,7 @@ public class HospitalService extends HibernateDriver
         try {
             openSession();
             String sql = "delete from BookBeds where room_id = :roomID";
-            SQLQuery query = getSession().createSQLQuery(sql);
+            SQLQuery query = getSession("deleteAllRoomBooked").createSQLQuery(sql);
             query.setParameter("roomID", roomID);
             query.executeUpdate();
 
@@ -324,7 +324,7 @@ public class HospitalService extends HibernateDriver
         List<Disease> diseases = null;
         try {
             openSession();
-            diseases = getSession().createQuery("From Disease where employee_id= :empID")
+            diseases = getSession("getAllDiseaseByEmployeeID").createQuery("From Disease where employee_id= :empID")
                     .setParameter("empID", employeeID).list();
 
         } catch (Exception ex) {
@@ -340,7 +340,7 @@ public class HospitalService extends HibernateDriver
         try {
             openSession();
 			String sql = "insert into Messages (messageBody, messageDate, messageStatus, subject, from_employee_id, patient_id, fto_employee_id) values(:mbody,:mdate,:mStatus,:mSubject,:mfromID, :mpatientID,:mToID)";
-			SQLQuery query = getSession().createSQLQuery(sql);
+			SQLQuery query = getSession("composeMessage").createSQLQuery(sql);
 			query.setParameter("mbody", message.getMessageBody());
 			query.setParameter("mdate", message.getMessageDate());
 			query.setParameter("mStatus", message.isMessageStatus());
@@ -365,7 +365,7 @@ public class HospitalService extends HibernateDriver
         try {
             openSession();
             String sql = "Select max(selledDrugID) from SelledDrugs";
-            SQLQuery sQLQuery = getSession().createSQLQuery(sql);
+            SQLQuery sQLQuery = getSession("getMaxIDObject").createSQLQuery(sql);
             maxID =  (BigInteger) sQLQuery.uniqueResult();
             
             if(maxID==null)
@@ -385,7 +385,7 @@ public class HospitalService extends HibernateDriver
         try {
             openSession();
             String sql = "insert into SelledDrugs ( SELLEDDRUGID ,Drug_ID, patient_ID, pharmatiest_ID, quantity, selledDate,unitPerDay,startDate,endDate) values(:1,:2,:3,:4,:5,:6,:7,:8,:9)";
-            SQLQuery query = getSession().createSQLQuery(sql);
+            SQLQuery query = getSession("sellDrug").createSQLQuery(sql);
             query.setParameter("1", selledDrug.getSelledDrugID() + 1);
             query.setParameter("2", selledDrug.getDrug().getDrugId());
             query.setParameter("3", selledDrug.getPatient().getPatientId());
@@ -413,7 +413,7 @@ public class HospitalService extends HibernateDriver
         try {
             openSession();
 
-            rooms = getSession().createQuery("From Room WHERE numberOfAvailableBeds >0").list();
+            rooms = getSession("getAllAvailableRoom").createQuery("From Room WHERE numberOfAvailableBeds >0").list();
 
         } catch (Exception ex) {
             roleBack();
@@ -428,7 +428,7 @@ public class HospitalService extends HibernateDriver
         List<SelledDrug> selledDrugs = null;
         try {
             openSession();
-            selledDrugs = getSession().createQuery("From SelledDrug where patient_ID= :patID")
+            selledDrugs = getSession("getAllSelledDrugForPatient").createQuery("From SelledDrug where patient_ID= :patID")
                     .setParameter("patID", patientID).list();
 
         } catch (Exception ex) {
@@ -445,7 +445,7 @@ public class HospitalService extends HibernateDriver
         List<NurseServiceTime> nurseServiceTimes = null;
         try {
             openSession();
-            nurseServiceTimes = getSession().createQuery("From NurseServiceTime where nurse_id= :nurseID")
+            nurseServiceTimes = getSession("getAllServiceTime").createQuery("From NurseServiceTime where nurse_id= :nurseID")
                     .setParameter("nurseID", nurseID).list();
 
         } catch (Exception ex) {

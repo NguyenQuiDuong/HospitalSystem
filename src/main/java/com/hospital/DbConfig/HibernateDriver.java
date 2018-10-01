@@ -31,7 +31,7 @@ public class HibernateDriver implements Serializable {
 
 	public void openSession() {
 		session = HibernateUtil.getSessionFactory().openSession();
-		setTransaction(getSession().beginTransaction());
+		setTransaction(getSession("openSession").beginTransaction());
 	}
 	
 	
@@ -51,7 +51,8 @@ public class HibernateDriver implements Serializable {
 	/**
 	 * @return the session
 	 */
-	public Session getSession() {
+	public Session getSession(String name) {
+		 System.out.println("Object "+name+" Saved Successfuly...");
 		return session;
 	}
 
