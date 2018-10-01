@@ -103,13 +103,13 @@ public class HospitalService extends HibernateDriver
      * @param object
      * @return
      */
-    public <T extends Object> int saveObject(T object) {
+    public <T extends Object> int saveObject(T object,String name) {
         int objectID = 0;
         try {
             openSession();
             objectID = (int) getSession().save(object);
 
-            System.out.println("Object Saved Successfuly...");
+            System.out.println("Object "+name+" Saved Successfuly...");
 
         } catch (Exception ex) {
             roleBack();

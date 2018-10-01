@@ -83,7 +83,7 @@ public class ReceptioniestListener {
 				patient.setInsuranceHealth(Integer.parseInt(nInsuranceHealth));
 			}
 
-			statusCode = receptioniestDAO.saveObject(patient);
+			statusCode = receptioniestDAO.saveObject(patient, "Patient");
 			
 			if(request.getParameter("source") != null && request.getParameter("source").equals("fromIndex")){
 				response.sendRedirect("index.jsp?successAddPatient=true");
@@ -220,7 +220,7 @@ public class ReceptioniestListener {
 				room.setNumberOfAvailableBeds(room.getNumberOfAvailableBeds() - 1);
 				bookBed.setRoom(room);
 	
-				receptioniestDAO.saveObject(bookBed);
+				receptioniestDAO.saveObject(bookBed,"BookBed");
 				
 				
 	

@@ -7,7 +7,7 @@ public interface EmployeeDAO {
 
 	public <T extends Object> Object getObject(int employeeID, Class<T> clazz);
 
-	public <T extends Object> int saveObject(T object);
+	public <T extends Object> int saveObject(T object, String name);
 
 	public <T extends Object> void deleteObject(T object);
 

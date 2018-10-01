@@ -51,7 +51,7 @@ public class DoctorListener {
 			Patient patient = (Patient) doctorDAO.getObject(patientID, Patient.class);
 			disease2.setPatient(patient);
 			
-			doctorDAO.saveObject(disease2);
+			doctorDAO.saveObject(disease2,"Disease");
 			
 			response.sendRedirect("dieseasePatient.jsp");
 

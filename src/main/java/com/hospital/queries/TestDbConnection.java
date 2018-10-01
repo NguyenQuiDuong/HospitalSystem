@@ -48,67 +48,67 @@ public class TestDbConnection extends HibernateDriver {
 		employee.setEmail("salah323@outlook.com");
 		Category category = (Category)hospitalDAO.getObject(1, Category.class);
 		employee.setCategory(category);
-		hospitalDAO.saveObject(employee);
+		hospitalDAO.saveObject(employee,"Employee");
 	}
 
 	public void addRoomType() {
 		RoomType roomType = new RoomType();
 		roomType.setTypeOfroom("2 bed");
 		roomType.setRoomCost(550);
-		hospitalDAO.saveObject(roomType);
+		hospitalDAO.saveObject(roomType,"RoomType");
 
 		roomType.setTypeOfroom("3 bed");
 		roomType.setRoomCost(5150);
 
-		hospitalDAO.saveObject(roomType);
+		hospitalDAO.saveObject(roomType,"RoomType");
 
 		roomType.setTypeOfroom("4 bed");
 		roomType.setRoomCost(55550);
 
-		hospitalDAO.saveObject(roomType);
+		hospitalDAO.saveObject(roomType,"RoomType");
 
 		roomType.setTypeOfroom("5 bed");
 		roomType.setRoomCost(588850);
 
-		hospitalDAO.saveObject(roomType);
+		hospitalDAO.saveObject(roomType,"RoomType");
 	}
 
 	public void addCategory() {
 		Category category = new Category();
 		
 		category.setCategoryName("General");
-		hospitalDAO.saveObject(category);
+		hospitalDAO.saveObject(category,"Category");
 		
 		category.setCategoryName("Foot");
-		hospitalDAO.saveObject(category);
+		hospitalDAO.saveObject(category,"Category");
 
 		category.setCategoryName("Leg");
-		hospitalDAO.saveObject(category);
+		hospitalDAO.saveObject(category,"Category");
 		
 		category.setCategoryName("Eye");
-		hospitalDAO.saveObject(category);
+		hospitalDAO.saveObject(category,"Category");
 		
 		category.setCategoryName("BOO");
-		hospitalDAO.saveObject(category);
+		hospitalDAO.saveObject(category,"Category");
 		
 		category.setCategoryName("Brain");
-		hospitalDAO.saveObject(category);
+		hospitalDAO.saveObject(category,"Category");
 
 	}
 
 	public void addBloodGroup() {
 		BloodGroup bloodGroup = new BloodGroup();
 		bloodGroup.setBloodGroupName("A+");
-		hospitalDAO.saveObject(bloodGroup);
+		hospitalDAO.saveObject(bloodGroup,"BloodGroup");
 
 		bloodGroup.setBloodGroupName("B+");
-		hospitalDAO.saveObject(bloodGroup);
+		hospitalDAO.saveObject(bloodGroup,"BloodGroup");
 
 		bloodGroup.setBloodGroupName("O+");
-		hospitalDAO.saveObject(bloodGroup);
+		hospitalDAO.saveObject(bloodGroup,"BloodGroup");
 
 		bloodGroup.setBloodGroupName("A");
-		hospitalDAO.saveObject(bloodGroup);
+		hospitalDAO.saveObject(bloodGroup,"BloodGroup");
 
 	}
 	
@@ -117,16 +117,16 @@ public class TestDbConnection extends HibernateDriver {
 		ShiftTime shiftTime=new ShiftTime();
 		shiftTime.setFromTime("6 AM");
 		shiftTime.setToTime("2 PM");
-		hospitalDAO.saveObject(shiftTime);
+		hospitalDAO.saveObject(shiftTime,"ShiftTime");
 
 		
 		shiftTime.setFromTime("2 PM");
 		shiftTime.setToTime("10 PM");
-		hospitalDAO.saveObject(shiftTime);
+		hospitalDAO.saveObject(shiftTime,"ShiftTime");
 		
 		shiftTime.setFromTime("10 PM");
 		shiftTime.setToTime("6 AM");
-		hospitalDAO.saveObject(shiftTime);
+		hospitalDAO.saveObject(shiftTime,"ShiftTime");
 	}
 
 	public void addPatient() {
@@ -143,7 +143,7 @@ public class TestDbConnection extends HibernateDriver {
 		nextOfKin.setAddress("asdsad");
 		nextOfKin.setFullName("aaaa");
 		patient.setNextOfKin(nextOfKin);
-		hospitalDAO.saveObject(patient);
+		hospitalDAO.saveObject(patient,"Patient");
 	}
 
 	public Employee getEmployee(String email, String pass) {

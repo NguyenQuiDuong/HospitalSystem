@@ -148,7 +148,7 @@ public class AdminListener {
 
             employee.setCategory((Category) adminDAO.getObject(catgoryID, Category.class));
 
-            statusCode = adminDAO.saveObject(employee);
+            statusCode = adminDAO.saveObject(employee,"Employee");
 
             System.out.println("Status Code:" + statusCode);
 
@@ -310,7 +310,7 @@ public class AdminListener {
             room.setRoomType((RoomType) adminDAO.getObject(roomTypeID, RoomType.class));
             room.setRoomNumber(roomNumber);
 
-            int statusCode = adminDAO.saveObject(room);
+            int statusCode = adminDAO.saveObject(room,"Room");
 
             if (statusCode == 0) {
                 response.sendRedirect("mgmtroom.jsp?error=true");
@@ -395,7 +395,7 @@ public class AdminListener {
             Nurse nurse = (Nurse) adminDAO.getObject(Integer.parseInt(nurseID), Nurse.class);
             nurseServiceTime.setNurse(nurse);
 
-            adminDAO.saveObject(nurseServiceTime);
+            adminDAO.saveObject(nurseServiceTime,"NurseServiceTime");
 
             response.sendRedirect("servicetime.jsp?add=true");
 

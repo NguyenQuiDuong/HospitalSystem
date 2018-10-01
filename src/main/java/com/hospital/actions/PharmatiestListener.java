@@ -66,7 +66,7 @@ public class PharmatiestListener {
 			drug.setQuantity(Integer.parseInt(quantity));
 			drug.setEmployee(employee);
 
-			pharmatiestDAO.saveObject(drug);
+			pharmatiestDAO.saveObject(drug,"Drug");
 
 			response.sendRedirect("drugmgmt.jsp?add=true");
 
