@@ -99,9 +99,9 @@
 									</div>
 								</div>
 
+							</div>
 
-
-
+							<div class="row">
 
 								<div class="col-sm-3 col-sm-offset-1">
 									<div class="form-group">
@@ -111,15 +111,16 @@
 								</div>
 
 
-								
+
 								<div class="col-sm-3">
 									<div class="form-group">
 										<div id="sandbox-container">
 											<label>Date of Birth</label>
 											<div class="input-daterange input-group" id="datepicker">
 
-												<input class="form-control" name="dob" type="text" placeholder="Date of Birth" required readonly>
-											<!-- 	<span class="input-group-addon"></span> -->
+												<input class="form-control" name="dob" type="text"
+													placeholder="Date of Birth" required readonly>
+												<!-- 	<span class="input-group-addon"></span> -->
 											</div>
 
 										</div>
@@ -135,7 +136,9 @@
 											placeholder="01091687523" required />
 									</div>
 								</div>
+							</div>
 
+							<div class="row">
 								<div class="col-sm-3 col-sm-offset-1">
 									<div class="form-group">
 										<label for="radio">Select Gender</label><br>
@@ -165,7 +168,7 @@
 
 
 
-							
+
 							</div>
 						</div>
 						<div class="tab-pane" id="skin">
@@ -188,7 +191,7 @@
 											placeholder="Orabi St...">
 									</div>
 								</div>
-								
+
 								<div class="col-sm-3 col-sm-offset-1">
 									<div class="form-group">
 										<label>Relationship<small>(required)</small></label> <input
@@ -263,10 +266,14 @@
 									<td><c:out value="${patient.gender}" /></td>
 									<td><c:out value="${patient.bloodGroup.bloodGroupName}" /></td>
 									<td><c:out value="${patient.address}" /></td>
-									<td><a href="patientmgmt.jsp?uempid=${patient.patientId}"><i
-											class="material-icons">edit</i></a> <a
-										href="Process?action=DeletePatient&dempid=${patient.patientId}"><i
-											class="material-icons">close</i></a></td>
+									<td>
+										<a href="patientmgmt.jsp?uempid=${patient.patientId}">
+											<i class="material-icons">edit</i>
+										</a> 
+										<a data-link="/Process?action=DeletePatient&dempid=${patient.patientId}" onClick="deletePatient(this)" >
+											<i class="material-icons">close</i>
+										</a>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
