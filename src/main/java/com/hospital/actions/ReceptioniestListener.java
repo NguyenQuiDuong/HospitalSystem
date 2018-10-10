@@ -152,7 +152,6 @@ public class ReceptioniestListener {
 
 			Patient patient =(Patient) receptioniestDAO.getObject(selectedPatientID, Patient.class);
 			patient.setPatientId(selectedPatientID);
-			patient.setName(firstname);
 			patient.setFatherName(fathername);
 			patient.setFamilyName(familyname);
 			patient.setAddress(address);
