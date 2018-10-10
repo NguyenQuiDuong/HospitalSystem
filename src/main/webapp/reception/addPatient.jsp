@@ -89,8 +89,8 @@
 											placeholder="Atwa...">
 									</div>
 								</div>
-
-
+							</div>
+							<div class="row">
 								<div class="col-sm-3">
 									<div class="form-group">
 										<label>Address<small>(required)</small></label> <input
@@ -111,22 +111,25 @@
 								</div>
 
 
-								
+
 								<div class="col-sm-3">
 									<div class="form-group">
 										<div id="sandbox-container">
 											<label>Date of Birth</label>
 											<div class="input-daterange input-group" id="datepicker">
 
-												<input class="form-control" name="dob" type="text" placeholder="Date of Birth" required readonly>
-											<!-- 	<span class="input-group-addon"></span> -->
+												<input class="form-control" name="dob" type="text"
+													placeholder="Date of Birth" required readonly>
+												<!-- 	<span class="input-group-addon"></span> -->
 											</div>
 
 										</div>
 									</div>
 								</div>
 
+							</div>
 
+							<div class="row">
 
 								<div class="col-sm-3 col-sm-offset-1">
 									<div class="form-group">
@@ -146,7 +149,7 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="col-sm-3">
 									<div class="form-group">
 										<label for="radio">Select Type</label><br>
@@ -157,7 +160,7 @@
 										</div>
 									</div>
 								</div>
-								
+
 
 								<div class="col-sm-3 col-sm-offset-1">
 									<div class="form-group">
@@ -171,29 +174,31 @@
 										</select>
 									</div>
 								</div>
-								
+
 								<div class="col-sm-12">
 									<div class="col-sm-4 col-sm-offset-1">
 										<div class="form-group">
 											<div class="togglebutton">
-												<label data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-											        <input type="checkbox" name="checkInsuranceHealth" value=true/> Insurance Health
-										      	</label>
-									      	</div>
-									      	<div id="collapseOne" aria-expanded="false" class="collapse">
-												<label for="radio">Select level</label><br>
-												<select class="form-control" name="insuranceHealth" required>
+												<label data-toggle="collapse" data-target="#collapseOne"
+													aria-expanded="false" aria-controls="collapseOne">
+													<input type="checkbox" name="checkInsuranceHealth"
+													value=true /> Insurance Health
+												</label>
+											</div>
+											<div id="collapseOne" aria-expanded="false" class="collapse">
+												<label for="radio">Select level</label><br> <select
+													class="form-control" name="insuranceHealth" required>
 													<option value="">Select Insurance</option>
-													<option value="10" > Level 1</option> 
-													<option value="20" > Level 2</option>
-													<option value="30" > Level 3</option>
-													<option value="40" > Level 4</option>
+													<option value="10">Level 1</option>
+													<option value="20">Level 2</option>
+													<option value="30">Level 3</option>
+													<option value="40">Level 4</option>
 												</select>
 											</div>
 										</div>
 									</div>
 								</div>
-							
+
 							</div>
 						</div>
 						<div class="tab-pane" id="skin">
@@ -216,7 +221,7 @@
 											placeholder="Orabi St...">
 									</div>
 								</div>
-								
+
 								<div class="col-sm-3 col-sm-offset-1">
 									<div class="form-group">
 										<label>Relationship<small>(required)</small></label> <input
@@ -284,17 +289,22 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${patients}" var="patient">
-								<tr <c:if test="${patient.type == 2 }">style="color: red;"</c:if>>
+								<tr
+									<c:if test="${patient.type == 2 }">style="color: red;"</c:if>>
 									<td><c:out value="${patient.name}" /> <c:out
 											value="${patient.fatherName}" /> <c:out
 											value="${patient.familyName}" /></td>
 									<td><c:out value="${patient.gender}" /></td>
 									<td><c:out value="${patient.bloodGroup.bloodGroupName}" /></td>
 									<td><c:out value="${patient.address}" /></td>
-									<td><a href="patientmgmt.jsp?uempid=${patient.patientId}"><i
-											class="material-icons">edit</i></a> <a
-										href="Process?action=DeletePatient&dempid=${patient.patientId}"><i
-											class="material-icons">close</i></a></td>
+									<td>
+										<a href="patientmgmt.jsp?uempid=${patient.patientId}">
+											<i class="material-icons">edit</i>
+										</a> 
+										<a data-link="/Process?action=DeletePatient&dempid=${patient.patientId}" onClick="deletePatient(this)" >
+											<i class="material-icons">close</i>
+										</a>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
