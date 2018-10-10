@@ -162,6 +162,7 @@ demo = {
     },
 
 	showNotification: function(from, align,message,type){
+    	
 
     	$.notify({
         	icon: "notifications",
@@ -176,8 +177,6 @@ demo = {
             }
         });
 	}
-    
-    
 
 
 

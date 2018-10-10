@@ -1,14 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="com.hospital.models.Employee"%>
-<%@ page import="javax.servlet.http.HttpUtils.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%
 	Employee employee = (Employee) session.getAttribute("employee");
-	String url = request.getRequestURL().toString();
-	String baseURL = url.substring(0, url.length() - request.getRequestURI().length()) + request.getContextPath() + "/";
 %>
 <html>
 <head>
@@ -115,6 +112,10 @@
 	<!-- Material Dashboard javascript methods -->
 	<script src="assets/js/material-dashboard.js"></script>
 
+	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+	<script src="assets/js/demo.js"></script>
+
+
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="assets/js/jquery.bootstrap.wizard.js"
 		type="text/javascript"></script>
@@ -133,33 +134,6 @@
 
 	<!-- Date Picker -->
 	<script src="assets/js/bootstrap-datepicker.js"></script>
-	
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	
-	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
-	<script type="text/javascript">
-	var url_base = "<%= baseURL %>";
-		function deletePatient(el){
-			swal({
-				  title: "Are you sure delete patient?",
-				  icon: "warning",
-				  buttons: true,
-				  dangerMode: true,
-				})
-				.then((willDelete) => {
-				  if (willDelete) {
-					  window.open( url_base+$(el).data("link"), '_top', '' );
-					  event.preventDefault();
-				    swal("Poof! Your imaginary file has been deleted!", {
-				      icon: "success",
-				    });
-				  } else {
-				    
-				  }
-				});
-		}
-	
-	</script>
+
 </body>
 </html>
