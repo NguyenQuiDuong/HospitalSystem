@@ -127,7 +127,7 @@
 															<div class="form-group">
 																<label>Room <small>(required)</small></label> <select
 																	name="roomTypeID" class="form-control" required>
-																	<option>Select Room</option>
+																	<option value="">Select Room</option>
 																	<%
 																		for (Room room : rooms) {
 																	%>
@@ -148,7 +148,7 @@
 															<div class="form-group">
 																<label>Patient <small>(required)</small></label> <select
 																	name="patientID" class="form-control" required>
-																	<option>Select Patient</option>
+																	<option value="">Select Patient</option>
 																	<%
 																		for (Patient patient : patients) {
 																	%>
@@ -197,7 +197,7 @@
 															<div class="form-group">
 																<label>Room <small>(required)</small></label> <select
 																	name="roomTypeID" class="form-control" required>
-																	<option>Select Room</option>
+																	<option value="">Select Room</option>
 																	<%
 																		for (Room room : rooms) {
 																	%>
@@ -217,7 +217,7 @@
 															<div class="form-group">
 																<label>Patient <small>(required)</small></label> <select
 																	name="patientID" class="form-control" required>
-																	<option>Select Patient</option>
+																	<option value="">Select Patient</option>
 																	<%
 																		for (Patient patient : patients) {
 																	%>
