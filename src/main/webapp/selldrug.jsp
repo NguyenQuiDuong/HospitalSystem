@@ -37,6 +37,8 @@
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons'
 	rel='stylesheet' type='text/css'>
+	<!-- Date Picker -->
+<link href="assets/css/date-picker.css" rel="stylesheet" />
 
 <script>
 	function addSellDrug() {
@@ -124,6 +126,8 @@
 	<script src="assets/js/jquery.dataTables.min.js"></script>
 
 	<script src="assets/js/dataTables.bootstrap.min.js"></script>
+	<!-- Date Picker -->
+	<script src="assets/js/bootstrap-datepicker.js"></script>
 
 </body>
 </html>

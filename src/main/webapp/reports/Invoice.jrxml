@@ -121,7 +121,7 @@
 		<fieldDescription><![CDATA[drug_expired]]></fieldDescription>
 	</field>
 	<field name="bloodGroupName" class="java.lang.String"/>
-	<field name="totalCost" class="java.lang.Double"/>
+	<field name="totalCost" class="java.lang.String"/>
 	<group name="Gruppo1">
 		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
 		<groupFooter>

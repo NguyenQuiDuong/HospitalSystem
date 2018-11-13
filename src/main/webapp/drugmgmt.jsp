@@ -120,10 +120,6 @@
 	<!-- Material Dashboard javascript methods -->
 	<script src="assets/js/material-dashboard.js"></script>
 
-	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
-
-
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="assets/js/jquery.bootstrap.wizard.js"
 		type="text/javascript"></script>
@@ -141,6 +137,9 @@
 	
 	<!-- Date Picker -->
 	<script src="assets/js/bootstrap-datepicker.js"></script>
+	
+	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+	<script src="assets/js/demo.js"></script>
 	
 
 </body>

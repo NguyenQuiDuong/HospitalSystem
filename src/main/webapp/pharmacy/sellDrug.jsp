@@ -181,7 +181,7 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Unit Per Day <small>(required)</small></label> <input
-																	name="unitPerDay" type="text" class="form-control"
+																	name="unitPerDay" type="number" class="form-control" min="1" max="4"
 																	placeholder="3 times.." value="<%= selledDrug.getUnitPerDay()%>">
 															</div>
 														</div>
@@ -195,7 +195,7 @@
 																	<div class="input-daterange input-group"
 																		id="datepicker">
 
-																		<input class="form-control" name="startTake"
+																		<input class="form-control" name="startTake" readonly
 																			type="text" placeholder="00/00/0000" required value="<%=FormateDate.getStringDate(selledDrug.getStartDate())%>"
 																			>
 																	</div>
@@ -212,7 +212,7 @@
 																	<div class="input-daterange input-group"
 																		id="datepicker">
 
-																		<input class="form-control" name="endTake" type="text"
+																		<input class="form-control" name="endTake" type="text" readonly
 																			placeholder="00/00/0000" required  value="<%=FormateDate.getStringDate(selledDrug.getEndDate())%>" >
 																	</div>
 
@@ -290,7 +290,7 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Unit Per Day <small>(required)</small></label> <input
-																	name="unitPerDay" type="text" class="form-control"
+																	name="unitPerDay" type="number" class="form-control" min="1" max="4"
 																	placeholder="3 times..">
 															</div>
 														</div>
@@ -298,7 +298,7 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Quantity <small>(required)</small></label> <input
-																	required name="quantity" type="number" required
+																	required name="quantity" type="number" required 
 																	class="form-control" placeholder="Quantity">
 															</div>
 														</div>
@@ -311,7 +311,7 @@
 																	<div class="input-daterange input-group"
 																		id="datepicker">
 
-																		<input class="form-control" name="startTake"
+																		<input class="form-control" name="startTake" readonly
 																			type="text" placeholder="00/00/0000" required
 																			>
 																	</div>
@@ -328,7 +328,7 @@
 																	<div class="input-daterange input-group"
 																		id="datepicker">
 
-																		<input class="form-control" name="endTake" type="text"
+																		<input class="form-control" name="endTake" type="text" readonly
 																			placeholder="00/00/0000" required >
 																	</div>
 

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -356,7 +358,7 @@ public class PharmatiestListener {
 			totalPrice = allSelledDrugForEmployee.get(i).getDrug().getCost() * allSelledDrugForEmployee.get(i).getQuantity();
 			sum += totalPrice-(totalPrice*allSelledDrugForEmployee.get(i).getPatient().getInsuranceHealth()/100);
 
-			p.setTotalCost(sum);
+			p.setTotalCost(Double.toString(round(sum,0)));
 
 			patientDrugInvoices[i] = p;
 		}
@@ -364,7 +366,7 @@ public class PharmatiestListener {
 		for (int i = 0; i < patientDrugInvoices.length; i++) {
 			PatientDrugInvoice p = new PatientDrugInvoice();
 			p = patientDrugInvoices[i];
-			p.setTotalCost(sum);
+			p.setTotalCost(Double.toString(round(sum,0)));
 			patientDrugInvoices[i] = p;
 		}
 
@@ -376,5 +378,13 @@ public class PharmatiestListener {
 			pharmatiestDAO.deleteObject(allSelledDrugForEmployee.get(i));
 		}
 		return patientDrugInvoices;
+	}
+	
+	public static double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
+
+	    BigDecimal bd = new BigDecimal(value);
+	    bd = bd.setScale(places, RoundingMode.HALF_UP);
+	    return bd.doubleValue();
 	}
 }

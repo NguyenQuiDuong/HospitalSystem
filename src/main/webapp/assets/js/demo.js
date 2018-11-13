@@ -181,3 +181,8 @@ demo = {
 
 
 }
+
+$(document).ready(function(){
+	 $('#formAddDrug').removeAttr('novalidate');
+	 console.log($('#formAddDrug'));
+})

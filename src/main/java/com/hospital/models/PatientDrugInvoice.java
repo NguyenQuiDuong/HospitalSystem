@@ -29,7 +29,7 @@ public class PatientDrugInvoice {
 	private Date startDate;
 	private Date drug_expired;
 	
-	private double totalCost;
+	private String totalCost;
 	private String employeeName;
 
 	public PatientDrugInvoice() {
@@ -197,11 +197,11 @@ public class PatientDrugInvoice {
 		this.bloodGroupName = bloodGroupName;
 	}
 
-	public double getTotalCost() {
+	public String getTotalCost() {
 		return totalCost;
 	}
 
-	public void setTotalCost(double totalCost) {
+	public void setTotalCost(String totalCost) {
 		this.totalCost = totalCost;
 	}
 

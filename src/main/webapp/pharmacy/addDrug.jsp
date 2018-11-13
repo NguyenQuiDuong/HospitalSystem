@@ -41,7 +41,7 @@
 
 
 			<div class="wizard-card" data-color="red" id="wizardProfile">
-				<form method="POST" action="Process?action=AddDrug">
+				<form method="POST" action="Process?action=AddDrug" id="formAddDrug">
 					<!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
 
 					<div class="wizard-header">
@@ -77,7 +77,7 @@
 									<div class="form-group">
 										<label>Cost <small>(required)</small></label> <input
 											type="number" class="form-control" name="cost"
-											placeholder="10.00" required />
+											placeholder="10.00" step="0.01" required />
 									</div>
 								</div>
 
