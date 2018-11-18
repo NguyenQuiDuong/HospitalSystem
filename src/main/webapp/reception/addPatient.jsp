@@ -134,7 +134,7 @@
 								<div class="col-sm-3 col-sm-offset-1">
 									<div class="form-group">
 										<label>Phone <small>(required)</small></label> <input
-											type="number" class="form-control" name="phone"
+											type="text" class="form-control" name="phone" id='phone-validate'
 											placeholder="01091687523" required />
 									</div>
 								</div>
@@ -143,8 +143,8 @@
 									<div class="form-group">
 										<label for="radio">Select Gender</label><br>
 										<div class="radio">
-											<label><input type="radio" name="gender" required
-												value="male" required /> Male</label> <label><input
+											<label><input type="radio" name="gender"
+												value="male" /> Male</label> <label><input
 												type="radio" name="gender" value="female" /> Female</label>
 										</div>
 									</div>
@@ -154,8 +154,8 @@
 									<div class="form-group">
 										<label for="radio">Select Type</label><br>
 										<div class="radio">
-											<label><input type="radio" name="type" required
-												value="1" required /> In patient</label> <label><input
+											<label><input type="radio" name="type"
+												value="1" /> In patient</label> <label><input
 												type="radio" name="type" value="2" /> Out patient</label>
 										</div>
 									</div>
@@ -233,7 +233,7 @@
 								<div class="col-sm-3 col-sm-offset-1">
 									<div class="form-group">
 										<label>Phone <small>(required)</small></label> <input
-											type="number" class="form-control" name="nphone"
+											type="text" class="form-control" name="nphone" id='phone-validate'
 											placeholder="01091687523" required />
 									</div>
 								</div>

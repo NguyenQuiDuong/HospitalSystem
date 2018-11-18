@@ -184,5 +184,13 @@ demo = {
 
 $(document).ready(function(){
 	 $('#formAddDrug').removeAttr('novalidate');
-	 console.log($('#formAddDrug'));
+	 if( $('#phone-validate').length != 0){
+		 $("input[name='next']").click(function(){
+			 if ( $('#phone-validate').val().length > 0 && !$('#phone-validate').val().match(/(09|01[2|6|8|9])+([0-9]{8})\b/g))
+				 {
+				 	$('#phone-validate').after('<label id="phone-error" class="error" for="phone">This field is invalid.</label>');
+				 	return false;
+				 }
+		 });
+	 }
 })

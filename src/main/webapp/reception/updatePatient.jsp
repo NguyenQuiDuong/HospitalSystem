@@ -141,8 +141,8 @@
 								<div class="col-sm-3 col-sm-offset-1">
 									<div class="form-group">
 										<label>Phone <small>(required)</small></label> <input
-											type="number" class="form-control" name="phone"
-											placeholder="01091687523" required
+											type="text" class="form-control" name="phone"
+											placeholder="01091687523" required id='phone-validate'
 											value="<%=selectedPatient.getPhone()%>" />
 									</div>
 								</div>
@@ -255,7 +255,7 @@
 								<div class="col-sm-3 col-sm-offset-1">
 									<div class="form-group">
 										<label>Phone <small>(required)</small></label> <input
-											type="number" class="form-control" name="nphone"
+											type="text" class="form-control" name="nphone" id='phone-validate'
 											value="<%=selectedPatient.getNextOfKin().getPhone()%>"
 											placeholder="01091687523" required />
 									</div>
