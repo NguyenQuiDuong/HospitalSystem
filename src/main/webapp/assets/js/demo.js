@@ -219,29 +219,40 @@ $(document).ready(function(){
 })
 
 function myValidate(el){
-	var isValidate = true;
 	var form = $(el);
+	var isValidate = form.valid();
 	var selections = form.find("select");
 	var inputNumber = form.find("input[type='number']");
 	var inputText = form.find("input[type='text']");
 	
-	if(selections.lenght != 0){
+	if(selections.length != 0){
 		selections.each(function(index){
 			if( !$(this).val() ){
 				 $(this).after('<label id="'+$(this).attr('name')+'-error" class="error" for="'+$(this).attr('name')+'">Please select an item in the list.</label>')
 				 isValidate = false;
 			 }
 		});
+	}
+	if(inputText.length != 0){
 		inputText.each(function(index){
 			if ( !$(this).val() ){
 				$(this).after('<label id="'+$(this).attr('name')+'-error" class="error" for="'+$(this).attr('name')+'">Please fill this field.</label>')
 				 isValidate = false;
 			}
 		});
+	}
+	if(inputNumber.length != 0){
 		inputNumber.each(function(index){
-			if( !$(this).match(/^\d+$/)){
+			if( !$(this).val().match(/^\d+$/)){
 				$(this).after('<label id="'+$(this).attr('name')+'-error" class="error" for="'+$(this).attr('name')+'">This field is invalid.</label>')
 				 isValidate = false;
+			}else{
+				var min = $(this).data('min');
+				var max = $(this).data('max');
+				if (min > $(this).val() || $(this).val() > max){
+					$(this).after('<label id="'+$(this).attr('name')+'-error" class="error" for="'+$(this).attr('name')+'">Please enter a valid number beetween '+min+' to '+max+'.</label>')
+					 isValidate = false;
+				}
 			}
 		})
 	}

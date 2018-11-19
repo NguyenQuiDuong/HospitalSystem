@@ -245,13 +245,13 @@
 
 												<c:otherwise>
 
-													<form action="Process?action=SellDrug" method="POST">
+													<form action="Process?action=SellDrug" method="POST" onsubmit="return myValidate(this)">
 
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Drug <small>(required)</small></label> <select
-																	name="drugID" class="form-control" required>
-																	<option>Select Drug</option>
+																	name="drugID" class="form-control">
+																	<option value="">Select Drug</option>
 																	<%
 																		for (Drug drug : drugs) {
 																	%>
@@ -269,8 +269,8 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Patient <small>(required)</small></label> <select
-																	name="patientID" class="form-control" required>
-																	<option>Select Patient</option>
+																	name="patientID" class="form-control">
+																	<option value="">Select Patient</option>
 																	<%
 																		for (Patient patient : patients) {
 																	%>
@@ -290,7 +290,7 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Unit Per Day <small>(required)</small></label> <input
-																	name="unitPerDay" type="number" class="form-control" min="1" max="4"
+																	name="unitPerDay" type="number" class="form-control" data-min="1" data-max="4"
 																	placeholder="3 times..">
 															</div>
 														</div>
@@ -298,7 +298,7 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Quantity <small>(required)</small></label> <input
-																	required name="quantity" type="number" required 
+																	name="quantity" type="number" data-min="1" data-max="50"
 																	class="form-control" placeholder="Quantity">
 															</div>
 														</div>
@@ -312,8 +312,7 @@
 																		id="datepicker">
 
 																		<input class="form-control" name="startTake" readonly
-																			type="text" placeholder="00/00/0000" required
-																			>
+																			type="text" placeholder="00/00/0000" >
 																	</div>
 
 																</div>
@@ -329,7 +328,7 @@
 																		id="datepicker">
 
 																		<input class="form-control" name="endTake" type="text" readonly
-																			placeholder="00/00/0000" required >
+																			placeholder="00/00/0000" >
 																	</div>
 
 																</div>
