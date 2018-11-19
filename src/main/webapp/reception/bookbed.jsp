@@ -121,13 +121,13 @@
 																BookBed selectedBookBed = (BookBed) receptioniestDAO.getObject(bookBedID, BookBed.class);
 													%>
 
-													<form action="Process?action=UpdateBookBed" method="POST">
+													<form action="Process?action=UpdateBookBed" method="POST" onsubmit="return myValidate(this)">
 														<input type="hidden" name="bookBedID"
 															value="<%=bookBedID%>" />
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Room <small>(required)</small></label> <select
-																	name="roomTypeID" class="form-control" required>
+																	name="roomTypeID" class="form-control">
 																	<option value="">Select Room</option>
 																	<%
 																		for (Room room : rooms) {
@@ -148,7 +148,7 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Patient <small>(required)</small></label> <select
-																	name="patientID" class="form-control" required>
+																	name="patientID" class="form-control">
 																	<option value="">Select Patient</option>
 																	<%
 																		for (Patient patient : patients) {
@@ -174,7 +174,7 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Departement <small>(required)</small></label> <input
-																	required name="departement" type="text"
+																	name="departement" type="text"
 																	class="form-control" placeholder="Departement"
 																	value="<%=selectedBookBed.getDepartement()%>">
 															</div>
