@@ -73,7 +73,7 @@
 													<th>Patient</th>
 													<th>Departement</th>
 													<th>Date of Booked</th>
-                                                                                                        <th>Room Number</th>
+													<th>Room Number</th>
 													<th>Room Type</th>
 													<th>Status</th>
 													<th></th>
@@ -122,7 +122,8 @@
 													%>
 
 													<form action="Process?action=UpdateBookBed" method="POST">
-														<input type="hidden" name="bookBedID" value="<%=bookBedID%>" />
+														<input type="hidden" name="bookBedID"
+															value="<%=bookBedID%>" />
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Room <small>(required)</small></label> <select
@@ -158,7 +159,10 @@
 																		<%=patient.getName()%>
 																		<%=patient.getFatherName()%>
 																		<%=patient.getFamilyName()%>
-																		<%if(patient.getType() == 2) out.print("*"); %>
+																		<%
+																			if (patient.getType() == 2)
+																							out.print("*");
+																		%>
 																	</option>
 																	<%
 																		}
@@ -190,13 +194,13 @@
 												</c:when>
 
 												<c:otherwise>
-													<form action="Process?action=BookBed" method="POST">
+													<form action="Process?action=BookBed" method="POST" onsubmit="return myValidate(this)">
 
 
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Room <small>(required)</small></label> <select
-																	name="roomTypeID" class="form-control" required>
+																	name="roomTypeID" class="form-control" id="roomTypeID">
 																	<option value="">Select Room</option>
 																	<%
 																		for (Room room : rooms) {
@@ -204,7 +208,7 @@
 																	<option value="<%=room.getRoomId()%>">
 																		<%=room.getRoomType().getTypeOfroom()%> /
 																		<%=room.getRoomType().getRoomCost()%> /
-                                                                                                                                                <%=room.getRoomNumber()%>
+																		<%=room.getRoomNumber()%>
 																	</option>
 																	<%
 																		}
@@ -216,7 +220,7 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Patient <small>(required)</small></label> <select
-																	name="patientID" class="form-control" required>
+																	name="patientID" class="form-control" id="patientID">
 																	<option value="">Select Patient</option>
 																	<%
 																		for (Patient patient : patients) {
@@ -225,7 +229,10 @@
 																		<%=patient.getName()%>
 																		<%=patient.getFatherName()%>
 																		<%=patient.getFamilyName()%>
-																		<%if(patient.getType() == 2) out.print("*"); %>
+																		<%
+																			if (patient.getType() == 2)
+																							out.print("*");
+																		%>
 																	</option>
 																	<%
 																		}
@@ -238,18 +245,18 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Departement <small>(required)</small></label> <input
-																	required name="departement" type="text"
+																	name="departement" type="text" id="department"
 																	class="form-control" placeholder="Departement">
 															</div>
 														</div>
 
-													
+
 
 														<div class="col-sm-3">
 															<div class="form-group">
 																<input type="submit"
 																	class="btn btn-round btn-fill btn-info"
-																	value="Book Bed" />
+																	value="Book Bed" id="bookBed" />
 															</div>
 														</div>
 

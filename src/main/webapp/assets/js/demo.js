@@ -193,4 +193,59 @@ $(document).ready(function(){
 				 }
 		 });
 	 }
+	 
+//	 if( $('#bookBed').length != 0){
+//		 $('#bookBed').click(function(){
+//			 if ( $('#roomTypeID-error').length != 0){
+//				 $('#roomTypeID-error').remove();
+//			 }
+//			 if ( $('#patientID-error').length != 0){
+//				 $('#patientID-error').remove();
+//			 }
+//			 if( $('#roomTypeID').length != 0 && !$('#roomTypeID').val() ){
+//				 $('#roomTypeID').after('<label id="roomTypeID-error" class="error" for="phone">Please select an item in the list.</label>')
+//				 return false;
+//			 }
+//			 if( $('#patientID').length != 0 && !$('#patientID').val() ){
+//				 $('#patientID').after('<label id="patientID-error" class="error" for="phone">Please select an item in the list.</label>')
+//				 return false;
+//			 }
+//			 if( $('#department').length != 0 && !$('#department').val() ){
+//				 $('#department').after('<label id="department-error" class="error" for="phone">Please fill this field.</label>')
+//				 return false;
+//			 }
+//		 })
+//	 }
 })
+
+function myValidate(el){
+	var isValidate = true;
+	var form = $(el);
+	var selections = form.find("select");
+	var inputNumber = form.find("input[type='number']");
+	var inputText = form.find("input[type='text']");
+	
+	if(selections.lenght != 0){
+		selections.each(function(index){
+			if( !$(this).val() ){
+				 $(this).after('<label id="'+$(this).attr('name')+'-error" class="error" for="'+$(this).attr('name')+'">Please select an item in the list.</label>')
+				 isValidate = false;
+			 }
+		});
+		inputText.each(function(index){
+			if ( !$(this).val() ){
+				$(this).after('<label id="'+$(this).attr('name')+'-error" class="error" for="'+$(this).attr('name')+'">Please fill this field.</label>')
+				 isValidate = false;
+			}
+		});
+		inputNumber.each(function(index){
+			if( !$(this).match(/^\d+$/)){
+				$(this).after('<label id="'+$(this).attr('name')+'-error" class="error" for="'+$(this).attr('name')+'">This field is invalid.</label>')
+				 isValidate = false;
+			}
+		})
+	}
+	
+	
+	return isValidate;
+}
