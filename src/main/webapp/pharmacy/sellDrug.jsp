@@ -136,13 +136,13 @@
 																SelledDrug selledDrug = (SelledDrug) pharmatiestDAO.getObject(selledDrugID, SelledDrug.class);
 													%>
 
-													<form action="Process?action=UpdateSellDrug" method="POST">
+													<form action="Process?action=UpdateSellDrug" method="POST" onsubmit="return myValidate(this)">
 														<input type="hidden" name="selledDrugID"
 															value="<%=selledDrugID%>" />
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Drug <small>(required)</small></label> <select
-																	name="drugID" class="form-control" required>
+																	name="drugID" class="form-control">
 																	<option>Select Drug</option>
 																	<%
 																		for (Drug drug : drugs) {
@@ -160,7 +160,7 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Patient <small>(required)</small></label> <select
-																	name="patientID" class="form-control" required>
+																	name="patientID" class="form-control">
 																	<option>Select Patient</option>
 																	<%
 																		for (Patient patient : patients) {
@@ -181,7 +181,7 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Unit Per Day <small>(required)</small></label> <input
-																	name="unitPerDay" type="number" class="form-control" min="1" max="4"
+																	name="unitPerDay" type="number" class="form-control" data-min="1" data-max="4"
 																	placeholder="3 times.." value="<%= selledDrug.getUnitPerDay()%>">
 															</div>
 														</div>
@@ -196,7 +196,7 @@
 																		id="datepicker">
 
 																		<input class="form-control" name="startTake" readonly
-																			type="text" placeholder="00/00/0000" required value="<%=FormateDate.getStringDate(selledDrug.getStartDate())%>"
+																			type="text" placeholder="00/00/0000" value="<%=FormateDate.getStringDate(selledDrug.getStartDate())%>"
 																			>
 																	</div>
 
@@ -213,7 +213,7 @@
 																		id="datepicker">
 
 																		<input class="form-control" name="endTake" type="text" readonly
-																			placeholder="00/00/0000" required  value="<%=FormateDate.getStringDate(selledDrug.getEndDate())%>" >
+																			placeholder="00/00/0000"  value="<%=FormateDate.getStringDate(selledDrug.getEndDate())%>" >
 																	</div>
 
 																</div>
@@ -224,7 +224,7 @@
 														<div class="col-sm-3">
 															<div class="form-group">
 																<label>Quantity <small>(required)</small></label> <input
-																	required name="quantity" type="number"
+																	name="quantity" type="number" data-min="1" data-max="50"
 																	class="form-control" placeholder="Quantity"
 																	value="<%=selledDrug.getQuantity()%>">
 															</div>
