@@ -143,7 +143,7 @@
 															<div class="form-group">
 																<label>Drug <small>(required)</small></label> <select
 																	name="drugID" class="form-control">
-																	<option>Select Drug</option>
+																	<option value="">Select Drug</option>
 																	<%
 																		for (Drug drug : drugs) {
 																	%>
@@ -161,7 +161,7 @@
 															<div class="form-group">
 																<label>Patient <small>(required)</small></label> <select
 																	name="patientID" class="form-control">
-																	<option>Select Patient</option>
+																	<option value="">Select Patient</option>
 																	<%
 																		for (Patient patient : patients) {
 																	%>
