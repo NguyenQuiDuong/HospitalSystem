@@ -75,7 +75,7 @@
 	                           <div class="form-group">
 	                              <label>Cost <small>(required)</small></label> <input
 	                                 type="number" class="form-control" name="cost" required
-	                                 placeholder="10.00"
+	                                 placeholder="10.00" min=1
 	                                 value="<%=selectedDrug.getCost()%>" />
 	                           </div>
 	                        </div>
@@ -83,7 +83,7 @@
 	                           <div class="form-group">
 	                              <label>Quantity <small>(required)</small></label> <input
 	                                 type="number" class="form-control" name="quantity" required
-	                                 value="<%=selectedDrug.getQuantity()%>" placeholder="50"
+	                                 value="<%=selectedDrug.getQuantity()%>" placeholder="50" min=1
 	                                 />
 	                           </div>
 	                        </div>

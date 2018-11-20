@@ -67,14 +67,14 @@
                               <div class="form-group">
                                  <label>Cost <small>(required)</small></label> <input
                                     type="number" class="form-control" name="cost" required
-                                    placeholder="10.00" step="0.01" />
+                                    placeholder="10.00" step="0.01" min=1 />
                               </div>
                            </div>
                            <div class="col-sm-3">
                               <div class="form-group">
                                  <label>Quantity <small>(required)</small></label> <input
                                     type="number" class="form-control" name="quantity" required
-                                    placeholder="50" />
+                                    placeholder="50" min=1 />
                               </div>
                            </div>
                         </div>
