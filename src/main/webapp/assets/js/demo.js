@@ -183,7 +183,7 @@ demo = {
 }
 
 $(document).ready(function(){
-	 $('#formAddDrug').removeAttr('novalidate');
+//	 $('#formAddDrug').removeAttr('novalidate');
 	 if( $('#phone-validate').length != 0){
 		 $("input[name='next']").click(function(){
 			 if ( $('#phone-validate').val().length > 0 && !$('#phone-validate').val().match(/(09|01[2|6|8|9])+([0-9]{8})\b/g))
@@ -227,6 +227,9 @@ function myValidate(el){
 	
 	if(selections.length != 0){
 		selections.each(function(index){
+			if( $('#'+$(this).attr('name')+'-error').length != 0){
+				$('#'+$(this).attr('name')+'-error').remove();
+			}
 			if( !$(this).val() ){
 				 $(this).after('<label id="'+$(this).attr('name')+'-error" class="error" for="'+$(this).attr('name')+'">Please select an item in the list.</label>')
 				 isValidate = false;
@@ -235,6 +238,9 @@ function myValidate(el){
 	}
 	if(inputText.length != 0){
 		inputText.each(function(index){
+			if( $('#'+$(this).attr('name')+'-error').length != 0){
+				$('#'+$(this).attr('name')+'-error').remove();
+			}
 			if ( !$(this).val() ){
 				$(this).after('<label id="'+$(this).attr('name')+'-error" class="error" for="'+$(this).attr('name')+'">Please fill this field.</label>')
 				 isValidate = false;
@@ -243,6 +249,9 @@ function myValidate(el){
 	}
 	if(inputNumber.length != 0){
 		inputNumber.each(function(index){
+			if( $('#'+$(this).attr('name')+'-error').length != 0){
+				$('#'+$(this).attr('name')+'-error').remove();
+			}
 			if( !$(this).val().match(/^\d+$/)){
 				$(this).after('<label id="'+$(this).attr('name')+'-error" class="error" for="'+$(this).attr('name')+'">This field is invalid.</label>')
 				 isValidate = false;

@@ -35,178 +35,151 @@
 </a>
 
 <div class="content">
-	<div class="container-fluid">
-
-		<div class="col-md-6">
-
-
-			<div class="wizard-card" data-color="red" id="wizardProfile">
-				<form method="POST" action="Process?action=AddDrug" id="formAddDrug">
-					<!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
-
-					<div class="wizard-header">
-						<h3>
-							<b>Add</b> Drug info <br> <small>This information
-								about Drug.</small>
-						</h3>
-					</div>
-
-
-					<div class="wizard-navigation">
-						<ul>
-							<li><a href="#about" data-toggle="tab">About</a></li>
-						</ul>
-
-					</div>
-
-					<div class="tab-content">
-						<div class="tab-pane" id="about">
-							<div class="row">
-								<h4 class="info-text">Basic Drug Information</h4>
-
-
-								<div class="col-sm-3">
-									<div class="form-group">
-										<label>Drug Name <small>(required)</small></label> <input
-											name="name" type="text" class="form-control"
-											placeholder="Kotofan drug.." required>
-									</div>
-								</div>
-
-								<div class="col-sm-3 col-sm-offset-1">
-									<div class="form-group">
-										<label>Cost <small>(required)</small></label> <input
-											type="number" class="form-control" name="cost"
-											placeholder="10.00" step="0.01" required />
-									</div>
-								</div>
-
-
-								<div class="col-sm-3 col-sm-offset-1">
-									<div class="form-group">
-										<label>Quantity <small>(required)</small></label> <input
-											type="number" class="form-control" name="quantity"
-											placeholder="50" required />
-									</div>
-								</div>
-
-
-
-
-								
-
-								
-								<div class="col-sm-3 ">
-									<div class="form-group">
-										<div  id="sandbox-container">
-											<label>production date <small>(required)</small></label>
-											<div class="input-daterange input-group" id="datepicker">
-
-												<input class="form-control" name="startDate" type="text"
-													placeholder="00/00/0000" required readonly>
-												<!-- 	<span class="input-group-addon"></span> -->
-											</div>
-
-										</div>
-									</div>
-								</div>
-								
-								
-								<div class="col-sm-3 ">
-									<div class="form-group">
-										<div  id="sandbox-container">
-											<label>Drug expired <small>(required)</small></label>
-											<div class="input-daterange input-group" id="datepicker">
-
-												<input class="form-control" name="drug_expired" type="text"
-													placeholder="00/00/0000" required readonly>
-												<!-- 	<span class="input-group-addon"></span> -->
-											</div>
-
-										</div>
-									</div>
-								</div>
-
-
-
-
-							</div>
-						</div>
-					</div>
-
-
-					<div class="wizard-footer height-wizard">
-						<div class="pull-right">
-							<input type='button'
-								class='btn btn-next btn-fill btn-warning btn-wd btn-sm'
-								name='next' value='Next' /> <input type='submit'
-								class='btn btn-finish btn-fill btn-warning btn-wd btn-sm'
-								name='finish' value='Finish' />
-
-						</div>
-
-						<div class="pull-left">
-							<input type='button'
-								class='btn btn-previous btn-fill btn-default btn-wd btn-sm'
-								name='previous' value='Previous' />
-						</div>
-						<div class="clearfix"></div>
-					</div>
-
-				</form>
-			</div>
-
-			<!-- wizard container -->
-
-		</div>
-
-
-		<div class="col-md-6">
-			<div class="card col-sm-offset-1">
-				<div class="card-header" data-background-color="red">
-					<h4 class="title">All Drugs</h4>
-					<p class="category"><%=drugs.size()%>
-						Drug's
-					</p>
-				</div>
-
-				<form action="" method="POST">
-					<table
-						class="table table-striped table-bordered table-hover dt-responsive "
-						id="allDrugs">
-						<thead class="text-primary">
-							<th>Name</th>
-							<th>Cost</th>
-							<th>Quantity</th>
-							<th>production date</th>
-							<th>Drug Expired</th>
-							<th>Employee</th>
-							<th></th>
-						</thead>
-						<tbody>
-							<c:forEach items="${drugs}" var="drug">
-								<tr>
-									<td><c:out value="${drug.name}" /></td>
-									<td><c:out value="${drug.cost}" /></td>
-									<td><c:out value="${drug.quantity}" /></td>
-									<td><c:out value="${drug.startDate}" /></td>
-									<td><c:out value="${drug.drug_expired}" /></td>
-									<td><c:out value="${drug.employee.firstName}" /> <c:out
-											value="${drug.employee.fatherName}" /> <c:out
-											value="${drug.employee.familyName}" /></td>
-									<td><a href="drugmgmt.jsp?uempid=${drug.drugId}"><i
-											class="material-icons">edit</i></a> <a
-										href="Process?action=DeleteDrug&dempid=${drug.drugId}"><i
-											class="material-icons">close</i></a></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-
-				</form>
-
-			</div>
-		</div>
-
-	</div>
+   <div class="container-fluid">
+      <div class="col-md-6">
+         <div class="wizard-card" data-color="red" id="wizardProfile">
+            <form method="POST" action="Process?action=AddDrug" id="formAddDrug" >
+               <!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
+               <div class="wizard-header">
+                  <h3>
+                     <b>Add</b> Drug info <br> <small>This information
+                     about Drug.</small>
+                  </h3>
+               </div>
+               <div class="wizard-navigation">
+                  <ul>
+                     <li><a href="#about" data-toggle="tab">About</a></li>
+                  </ul>
+               </div>
+               <div class="tab-content">
+                  <div class="tab-pane" id="about">
+                     <div class="row">
+                        <h4 class="info-text">Basic Drug Information</h4>
+                        <div class="row" style="padding: 0px 20px;">
+                           <div class="col-sm-3 sm-pull-1">
+                              <div class="form-group">
+                                 <label>Drug Name <small>(required)</small></label> <input
+                                    name="name" type="text" class="form-control" required
+                                    placeholder="Kotofan drug..">
+                              </div>
+                           </div>
+                           <div class="col-sm-3">
+                              <div class="form-group">
+                                 <label>Cost <small>(required)</small></label> <input
+                                    type="number" class="form-control" name="cost" required
+                                    placeholder="10.00" step="0.01" />
+                              </div>
+                           </div>
+                           <div class="col-sm-3">
+                              <div class="form-group">
+                                 <label>Quantity <small>(required)</small></label> <input
+                                    type="number" class="form-control" name="quantity" required
+                                    placeholder="50" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3 ">
+                           <div class="form-group">
+                              <div  id="sandbox-container">
+                                 <label>production date <small>(required)</small></label>
+                                 <div class="input-daterange input-group" id="datepicker">
+                                    <input class="form-control" name="startDate" type="text" required
+                                       placeholder="00/00/0000" readonly>
+                                    <!-- 	<span class="input-group-addon"></span> -->
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3 ">
+                           <div class="form-group">
+                              <div  id="sandbox-container">
+                                 <label>Drug expired <small>(required)</small></label>
+                                 <div class="input-daterange input-group" id="datepicker">
+                                    <input class="form-control" name="drug_expired" type="text" required
+                                       placeholder="00/00/0000" readonly>
+                                    <!-- 	<span class="input-group-addon"></span> -->
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="wizard-footer height-wizard">
+                  <div class="pull-right">
+                     <input type='button'
+                        class='btn btn-next btn-fill btn-warning btn-wd btn-sm'
+                        name='next' value='Next' /> <input type='submit'
+                        class='btn btn-finish btn-fill btn-warning btn-wd btn-sm'
+                        name='finish' value='Finish' />
+                  </div>
+                  <div class="pull-left">
+                     <input type='button'
+                        class='btn btn-previous btn-fill btn-default btn-wd btn-sm'
+                        name='previous' value='Previous' />
+                  </div>
+                  <div class="clearfix"></div>
+               </div>
+            </form>
+         </div>
+         <!-- wizard container -->
+      </div>
+      <div class="col-md-6">
+         <div class="card col-sm-offset-1">
+            <div class="card-header" data-background-color="red">
+               <h4 class="title">All Drugs</h4>
+               <p class="category"><%=drugs.size()%>
+                  Drug's
+               </p>
+            </div>
+            <form action="" method="POST" >
+               <table
+                  class="table table-striped table-bordered table-hover dt-responsive "
+                  id="allDrugs">
+                  <thead class="text-primary">
+                     <th>Name</th>
+                     <th>Cost</th>
+                     <th>Quantity</th>
+                     <th>production date</th>
+                     <th>Drug Expired</th>
+                     <th>Employee</th>
+                     <th></th>
+                  </thead>
+                  <tbody>
+                     <c:forEach items="${drugs}" var="drug">
+                        <tr>
+                           <td>
+                              <c:out value="${drug.name}" />
+                           </td>
+                           <td>
+                              <c:out value="${drug.cost}" />
+                           </td>
+                           <td>
+                              <c:out value="${drug.quantity}" />
+                           </td>
+                           <td>
+                              <c:out value="${drug.startDate}" />
+                           </td>
+                           <td>
+                              <c:out value="${drug.drug_expired}" />
+                           </td>
+                           <td>
+                              <c:out value="${drug.employee.firstName}" />
+                              <c:out
+                                 value="${drug.employee.fatherName}" />
+                              <c:out
+                                 value="${drug.employee.familyName}" />
+                           </td>
+                           <td><a href="drugmgmt.jsp?uempid=${drug.drugId}"><i
+                              class="material-icons">edit</i></a> <a
+                              href="Process?action=DeleteDrug&dempid=${drug.drugId}"><i
+                              class="material-icons">close</i></a></td>
+                        </tr>
+                     </c:forEach>
+                  </tbody>
+               </table>
+            </form>
+         </div>
+      </div>
+   </div>
 </div>
